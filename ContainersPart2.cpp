@@ -351,5 +351,25 @@ int main()
 
     // to_string
     cout << bt.to_string() << endl; // converts the bitset to a string representation
+
+
+
+
+    
+    //Lambda Function in C++
+    auto lambdaFunction = [](int x, int key){
+        return x < key; // A simple lambda function that takes two integers and returns their sum
+    };
+
+    //this is just an example of how to use a lambda function
+    int x = 5;
+    vector<int> vec = {1, 2, 3, 4, 6, 7, 8, 9, 10};
+    // auto lb = lower_bound(vec.begin(), vec.end(), x, lambdaFunction); // Find the first element not less than x in the array
+    // or we can use a lambda function directly
+    auto lb = lower_bound(vec.begin(), vec.end(), x, [](int a, int key) {
+        return a < key; // A lambda function that compares two integers
+    });
+
+
 }
 
