@@ -48,20 +48,20 @@ int main()
         cin >> arr[i];
     }
 
-    sort(arr, arr + n); // sort the array in ascending order
+    std::sort(arr, arr + n); // sort the array in ascending order
     // sort from index 1 to 3
-    sort(arr + 1, arr + 4); // sort the array from index 1 to 3 (exclusive of 4)
+    std::sort(arr + 1, arr + 4); // sort the array from index 1 to 3 (exclusive of 4)
 
     // Remember to free the allocated memory
     delete[] arr;
 
     vector<int> vec(5, 0);        // vector of size 5 initialized with 0
-    sort(vec.begin(), vec.end()); // sort the vector in ascending order//[)
+    std::sort(vec.begin(), vec.end()); // sort the vector in ascending order//[)
 
     // vec -> {1, 8, 7, 9, 10}
     //  sort it so that only indexes from 1 to 3 are sorted
     //  final vec -> {1, 7, 8, 9, 10}
-    sort(vec.begin() + 1, vec.begin() + 4); // sort the vector from index 1 to 3 // [1, 4) is the range to be sorted
+    std::sort(vec.begin() + 1, vec.begin() + 4); // sort the vector from index 1 to 3 // [1, 4) is the range to be sorted
 
     // 2. reverse
     reverse(arr, arr + n);                     // reverse the entire array // [0, n) is the range to be reversed
@@ -292,11 +292,41 @@ int main()
     bool res2 = next_permutation(st.begin(), st.end()); // string automaticaly gets to the next permutation automatically, if it get to the next permutation then return true, else return false, in this case st = "cba" and return false as there is no next permutation of cba, so string remains the same
 
 
+    // // Custom implementation of next permutation --->>>
+
+    // bool nextPermutation(string &str, int n){
+    //     int i = n-2;
+
+    //     //find out the first decreasing element from right
+    //     while(i >= 0 && str[i] >= str[i+1]){
+    //         i--;
+    //     }
+
+    //     //check out the next permutation is possible or not
+    //     if(i < 0){
+    //         reverse(str.begin(), str.end());
+    //         return false;
+    //     }
+
+    //     //find out the an elment that just greater than str[i] from right side
+    //     int j = n-1;
+    //     while(j >= 0 && str[j] < str[i]){
+    //         j--;
+    //     }
+
+    //     //swap with str[i] with str[j]
+    //     swap(str[j], str[i]);
+
+    //     //reverse from i+1 to the end
+    //     reverse(str.begin() + i + 1, str.end());
+    //     return true;
+    // }
+
 
     /////IMP --> //if  I give the any random string s = "bca"
     //I want to print all the  permutations
     string s2 = "bca";
-    sort(s2.begin(), s2.end()); // Sort the string to start with the smallest permutation
+    std::sort(s2.begin(), s2.end()); // Sort the string to start with the smallest permutation
 
     do{
         cout<< s2 << endl; // Print the current permutatio
@@ -326,13 +356,13 @@ int main()
 
 
     // 12. Comparator
-    sort(arr, arr +n ); // Sort the array in ascending order
+    std::sort(arr, arr +n ); // Sort the array in ascending order
 
-    sort(arr, arr+n, comp);
+    std::sort(arr, arr+n, comp);
 
     //greater<int> is an inbuilt comparator that sorts the array in descending order
-    sort(arr, arr + n, greater<int>()); // Sort the array in descending order
-    sort(arr, arr+n, greater<pair<int, int>>()); // Sort the array of pairs in descending order based on the first element of the pair
+    std::sort(arr, arr + n, greater<int>()); // Sort the array in descending order
+    std::sort(arr, arr+n, greater<pair<int, int>>()); // Sort the array of pairs in descending order based on the first element of the pair
     // Sort the array of pairs in descending order based on the first element of the pair
 
 
